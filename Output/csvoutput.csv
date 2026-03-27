@@ -1,0 +1,644 @@
+input,required-output,baseline-output,finetune-output,Result Baseline,Result Finetuned,
+"Question: How many members are currently active?
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",,Pass,,
+"Question: Show me new members gained vs churned each month for the last 12 months
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'waterfall', 'chartDetails': 'Waterfall chart showing monthly member gains (new joins) vs losses (churn) over last 12 months - green bars for gained, red bars for lost', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'waterfall', 'chartDetails': 'gains vs losses: new vs churned, gained vs lost, net change', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Show me new members gained vs churned each month for the last 12 months, bar chart', 'notAnswerableReason': None}",Pass,Fail,
+"Question: What is the renewal rate for student memberships?
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'What is the renewal rate for student memberships, line chart', 'notAnswerableReason': None}",Pass,Fail,
+"Question: Member count by state for 2024
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Member count by state for 2024, bar chart sorted by count descending', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'bar', 'chartDetails': 'Member count by state for 2024', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Member count by state for 2024, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: How has the active member count changed month over month this year?
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Active member count change month over month this year, line chart with month on x-axis and count on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'line', 'chartDetails': 'active member count over time', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'How has the active member count changed month over month this year, line chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: What percentage of members have a recurring subscription?
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Pass,Pass,
+"Question: Members gained vs lost waterfall by quarter 2023 to 2025
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'waterfall', 'chartDetails': 'Waterfall chart showing members gained vs lost by quarter from 2023 to 2025 - green bars for gains, red bars for losses', 'notAnswerableReason': None}",,"{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Members gained vs lost waterfall by quarter 2023 to 2025, bar chart', 'notAnswerableReason': None}",,Fail,
+"Question: Show membership status distribution across all product types
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Membership status distribution across all product types, stacked or grouped bar chart with product type on x-axis and member count on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'pie', 'chartDetails': 'percentage/share of total (8 or fewer categories)', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'pie', 'chartDetails': 'Show membership status distribution across all product types, pie chart', 'notAnswerableReason': None}",Fail,Fail,
+"Question: What is the average membership duration in days?
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Pass,Pass,
+"Question: Top 10 zip codes by active member count
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Top 10 zip codes by active member count, bar chart sorted by count descending', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'bar', 'chartDetails': 'Top 10 zip codes by active member count', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Top 10 zip codes by active member count, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Membership renewal rate by year since 2021
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Membership renewal rate by year since 2021, line chart with year on x-axis and renewal rate (%) on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'line', 'chartDetails': 'Membership renewal rate over time', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Membership renewal rate by year since 2021, line chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: How many members have an expired membership?
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Pass,Pass,
+"Question: Gender breakdown of members who joined via referral
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Gender breakdown of members who joined via referral, bar chart with gender on x-axis and member count on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'pie', 'chartDetails': 'Gender breakdown of members who joined via referral, pie chart', 'notAnswerableReason': None}",Fail,Fail,
+"Question: Dues paid vs overdue comparison by month 2024
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Dues paid vs overdue comparison by month for 2024, grouped bar chart with month on x-axis and count on y-axis', 'notAnswerableReason': None}",,"{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Dues paid vs overdue comparison by month 2024, bar chart', 'notAnswerableReason': None}",,Pass,
+"Question: What is the most popular product type?
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'What is the most popular product type, bar chart', 'notAnswerableReason': None}",Pass,Fail,
+"Question: What is the total revenue for Q3 2024?
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'What is the total revenue for Q3 2024, bar chart', 'notAnswerableReason': None}",Pass,Fail,
+"Question: Monthly revenue trend for the last 12 months
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Monthly revenue trend for the last 12 months, line chart with month on x-axis and revenue on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'line', 'chartDetails': 'Monthly revenue trend for the last 12 months', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Monthly revenue trend for the last 12 months, line chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Which product category has the highest return rate?
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'bar', 'chartDetails': 'product category comparison', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Fail,Pass,
+"Question: Revenue breakdown by channel this year
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Revenue breakdown by channel this year, bar chart with channel on x-axis and total revenue on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'bar', 'chartDetails': 'Revenue breakdown by channel this year', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'pie', 'chartDetails': 'Revenue breakdown by channel this year, pie chart', 'notAnswerableReason': None}",Fail,Fail,
+"Question: How has average order value changed month over month?
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Average order value change month over month, line chart with month on x-axis and average order value on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'line', 'chartDetails': 'Average order value over time', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'How has average order value changed month over month, line chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: What is the most used payment method?
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'What is the most used payment method, bar chart', 'notAnswerableReason': None}",Pass,Fail,
+"Question: Show orders by state - top 10 states
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Order count by state for top 10 states, bar chart sorted by order count descending', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Show orders by state - top 10 states, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Revenue this year vs last year by month
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Revenue comparison this year vs last year by month, dual-series line chart with month on x-axis and revenue on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'line', 'chartDetails': 'Revenue over time by month', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Revenue this year vs last year by month, bar chart', 'notAnswerableReason': None}",Fail,Fail,
+"Question: What percentage of orders are returned?
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Pass,Pass,
+"Question: Top 10 best-selling products by revenue
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Top 10 best-selling products by revenue, bar chart sorted by revenue descending', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'bar', 'chartDetails': 'Top 10 best-selling products by revenue', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Top 10 best-selling products by revenue, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Customer acquisition trend by month since 2022
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Customer acquisition trend by month since 2022, line chart with month on x-axis and new customer count on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'line', 'chartDetails': 'Customer acquisition trend by month since 2022', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Customer acquisition trend by month since 2022, line chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Return rate by product category
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Return rate by product category, bar chart with category on x-axis and return rate (%) on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'bar', 'chartDetails': 'rate by product category', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Return rate by product category, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: What is the average discount given per order?
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Pass,Pass,
+"Question: Customer distribution by segment
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'pie', 'chartDetails': 'Customer distribution by segment, pie chart showing proportion of customers in each segment', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'pie', 'chartDetails': 'Customer distribution by segment, pie chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: What is our total refund amount this quarter?
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Pass,Pass,
+"Question: How many employees were hired this year?
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'data not in the schema'}",,Fail,,
+"Question: Show headcount growth by quarter since 2020
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Headcount growth by quarter since 2020, line chart with quarter on x-axis and headcount on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'line', 'chartDetails': 'headcount growth by quarter since 2020', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Show headcount growth by quarter since 2020, line chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Average salary by department
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Average salary by department, bar chart with department on x-axis and average salary on y-axis sorted descending', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Average salary by department, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Employee turnover rate by year
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Employee turnover rate by year, line chart with year on x-axis and turnover rate (%) on y-axis', 'notAnswerableReason': None}",,"{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Employee turnover rate by year, line chart', 'notAnswerableReason': None}",,Pass,
+"Question: Gender distribution of employees by department
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Gender distribution of employees by department, grouped bar chart with department on x-axis and employee count by gender on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'Gender distribution of employees by department is not in the schema'}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Gender distribution of employees by department, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: How many employees are currently on leave?
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'data not in the schema'}",,Fail,,
+"Question: What is the total payroll cost this month?
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'data not in the schema'}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Fail,Pass,
+"Question: Performance rating distribution across all employees
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Performance rating distribution across all employees, bar chart with rating value on x-axis and employee count on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Performance rating distribution across all employees, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Total payroll expense by department per quarter
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Total payroll expense by department per quarter, grouped bar chart with quarter on x-axis and payroll expense by department on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'line', 'chartDetails': 'Total payroll expense by department per quarter', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Total payroll expense by department per quarter, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Which department has the highest attrition rate?
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'bar', 'chartDetails': 'attrition rate by department', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Fail,Pass,
+"Question: Headcount by office location
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Headcount by office location, bar chart with location on x-axis and employee count on y-axis sorted descending', 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'data not in the schema'}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Headcount by office location, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Average days of leave taken by leave type
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Average days of leave taken by leave type, bar chart with leave type on x-axis and average days on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'data not in the schema'}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Average days of leave taken by leave type, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: How many employees have been with the company more than 5 years?
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'not in schema'}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Fail,Pass,
+"Question: Monthly hiring trend for 2023 vs 2024
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Monthly hiring trend comparison for 2023 vs 2024, dual-series line chart with month on x-axis and new hires on y-axis', 'notAnswerableReason': None}",,,,,
+"Question: What is the average performance rating?
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Pass,Pass,
+"Question: What is the current MRR?
+
+Available database schema:
+Tables:
+- accounts (account_id, company_name, plan_type, signup_date, mrr, arr, status, country, industry)
+- users (user_id, account_id, email, role, created_at, last_login, is_active)
+- subscriptions (sub_id, account_id, plan_id, start_date, end_date, monthly_amount, billing_cycle, is_active)
+- events (event_id, user_id, event_type, event_name, occurred_at, session_id, device_type)
+- invoices (invoice_id, account_id, amount, issue_date, due_date, paid_date, status)
+- support_tickets (ticket_id, account_id, user_id, subject, priority, created_at, resolved_at, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Pass,Pass,
+"Question: MRR trend over the last 12 months
+
+Available database schema:
+Tables:
+- accounts (account_id, company_name, plan_type, signup_date, mrr, arr, status, country, industry)
+- users (user_id, account_id, email, role, created_at, last_login, is_active)
+- subscriptions (sub_id, account_id, plan_id, start_date, end_date, monthly_amount, billing_cycle, is_active)
+- events (event_id, user_id, event_type, event_name, occurred_at, session_id, device_type)
+- invoices (invoice_id, account_id, amount, issue_date, due_date, paid_date, status)
+- support_tickets (ticket_id, account_id, user_id, subject, priority, created_at, resolved_at, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'MRR trend over the last 12 months, line chart with month on x-axis and MRR on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'line', 'chartDetails': 'MRR trend over the last 12 months', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'MRR trend over the last 12 months, line chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Churn rate by plan type
+
+Available database schema:
+Tables:
+- accounts (account_id, company_name, plan_type, signup_date, mrr, arr, status, country, industry)
+- users (user_id, account_id, email, role, created_at, last_login, is_active)
+- subscriptions (sub_id, account_id, plan_id, start_date, end_date, monthly_amount, billing_cycle, is_active)
+- events (event_id, user_id, event_type, event_name, occurred_at, session_id, device_type)
+- invoices (invoice_id, account_id, amount, issue_date, due_date, paid_date, status)
+- support_tickets (ticket_id, account_id, user_id, subject, priority, created_at, resolved_at, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Churn rate by plan type, bar chart with plan type on x-axis and churn rate (%) on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'bar', 'chartDetails': 'Churn rate by plan type', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Churn rate by plan type, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: How many new accounts signed up last month?
+
+Available database schema:
+Tables:
+- accounts (account_id, company_name, plan_type, signup_date, mrr, arr, status, country, industry)
+- users (user_id, account_id, email, role, created_at, last_login, is_active)
+- subscriptions (sub_id, account_id, plan_id, start_date, end_date, monthly_amount, billing_cycle, is_active)
+- events (event_id, user_id, event_type, event_name, occurred_at, session_id, device_type)
+- invoices (invoice_id, account_id, amount, issue_date, due_date, paid_date, status)
+- support_tickets (ticket_id, account_id, user_id, subject, priority, created_at, resolved_at, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",,Pass,,
+"Question: Account distribution by industry
+
+Available database schema:
+Tables:
+- accounts (account_id, company_name, plan_type, signup_date, mrr, arr, status, country, industry)
+- users (user_id, account_id, email, role, created_at, last_login, is_active)
+- subscriptions (sub_id, account_id, plan_id, start_date, end_date, monthly_amount, billing_cycle, is_active)
+- events (event_id, user_id, event_type, event_name, occurred_at, session_id, device_type)
+- invoices (invoice_id, account_id, amount, issue_date, due_date, paid_date, status)
+- support_tickets (ticket_id, account_id, user_id, subject, priority, created_at, resolved_at, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'pie', 'chartDetails': 'Account distribution by industry, pie chart showing proportion of accounts in each industry', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'pie', 'chartDetails': 'Account distribution by industry, pie chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Support ticket volume by priority over last 6 months
+
+Available database schema:
+Tables:
+- accounts (account_id, company_name, plan_type, signup_date, mrr, arr, status, country, industry)
+- users (user_id, account_id, email, role, created_at, last_login, is_active)
+- subscriptions (sub_id, account_id, plan_id, start_date, end_date, monthly_amount, billing_cycle, is_active)
+- events (event_id, user_id, event_type, event_name, occurred_at, session_id, device_type)
+- invoices (invoice_id, account_id, amount, issue_date, due_date, paid_date, status)
+- support_tickets (ticket_id, account_id, user_id, subject, priority, created_at, resolved_at, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Support ticket volume by priority over last 6 months, grouped bar chart with month on x-axis and ticket count by priority on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'line', 'chartDetails': 'time trends: over time', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Support ticket volume by priority over last 6 months, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: What is the average days to resolve a support ticket?
+
+Available database schema:
+Tables:
+- accounts (account_id, company_name, plan_type, signup_date, mrr, arr, status, country, industry)
+- users (user_id, account_id, email, role, created_at, last_login, is_active)
+- subscriptions (sub_id, account_id, plan_id, start_date, end_date, monthly_amount, billing_cycle, is_active)
+- events (event_id, user_id, event_type, event_name, occurred_at, session_id, device_type)
+- invoices (invoice_id, account_id, amount, issue_date, due_date, paid_date, status)
+- support_tickets (ticket_id, account_id, user_id, subject, priority, created_at, resolved_at, status)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'data not in the schema'}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Fail,Pass,
+"Question: Monthly new account signups vs churned accounts waterfall last 12 months
+
+Available database schema:
+Tables:
+- accounts (account_id, company_name, plan_type, signup_date, mrr, arr, status, country, industry)
+- users (user_id, account_id, email, role, created_at, last_login, is_active)
+- subscriptions (sub_id, account_id, plan_id, start_date, end_date, monthly_amount, billing_cycle, is_active)
+- events (event_id, user_id, event_type, event_name, occurred_at, session_id, device_type)
+- invoices (invoice_id, account_id, amount, issue_date, due_date, paid_date, status)
+- support_tickets (ticket_id, account_id, user_id, subject, priority, created_at, resolved_at, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'waterfall', 'chartDetails': 'Waterfall chart showing monthly new account signups vs churned accounts over last 12 months - green bars for new signups, red bars for churned accounts', 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'waterfall', 'chartDetails': 'gains vs losses: new vs churned, gained vs lost, net change'}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Monthly new account signups vs churned accounts waterfall last 12 months, bar chart', 'notAnswerableReason': None}",Fail,Fail,
+"Question: Active user count trend week over week for last 8 weeks
+
+Available database schema:
+Tables:
+- accounts (account_id, company_name, plan_type, signup_date, mrr, arr, status, country, industry)
+- users (user_id, account_id, email, role, created_at, last_login, is_active)
+- subscriptions (sub_id, account_id, plan_id, start_date, end_date, monthly_amount, billing_cycle, is_active)
+- events (event_id, user_id, event_type, event_name, occurred_at, session_id, device_type)
+- invoices (invoice_id, account_id, amount, issue_date, due_date, paid_date, status)
+- support_tickets (ticket_id, account_id, user_id, subject, priority, created_at, resolved_at, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Active user count trend week over week for last 8 weeks, line chart with week on x-axis and active user count on y-axis', 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'line', 'chartDetails': 'Active user count trend week over week for last 8 weeks', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Active user count trend week over week for last 8 weeks, line chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Revenue by plan type breakdown
+
+Available database schema:
+Tables:
+- accounts (account_id, company_name, plan_type, signup_date, mrr, arr, status, country, industry)
+- users (user_id, account_id, email, role, created_at, last_login, is_active)
+- subscriptions (sub_id, account_id, plan_id, start_date, end_date, monthly_amount, billing_cycle, is_active)
+- events (event_id, user_id, event_type, event_name, occurred_at, session_id, device_type)
+- invoices (invoice_id, account_id, amount, issue_date, due_date, paid_date, status)
+- support_tickets (ticket_id, account_id, user_id, subject, priority, created_at, resolved_at, status)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Revenue breakdown by plan type, bar chart with plan type on x-axis and total revenue on y-axis sorted descending', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': True, 'chartType': 'bar', 'chartDetails': 'by plan type at a single point in time', 'notAnswerableReason': None}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Revenue by plan type breakdown, bar chart', 'notAnswerableReason': None}",Fail,Pass,
+"Question: Total patient visits by month this year
+
+Available database schema:
+Tables:
+- patients (patient_id, first_name, last_name, date_of_birth, gender, state, insurance_type, registration_date)
+- appointments (appointment_id, patient_id, provider_id, appointment_date, appointment_type, status, duration_min, no_show)
+- providers (provider_id, first_name, last_name, specialty, department_id, hire_date, status)
+- diagnoses (diagnosis_id, patient_id, appointment_id, icd_code, description, diagnosed_date, severity)
+- billing (billing_id, patient_id, appointment_id, service_date, billed_amount, paid_amount, insurance_paid, balance, status)
+- medications (medication_id, patient_id, drug_name, dosage, prescribed_date, end_date, provider_id)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Total patient visits by month this year, bar chart with month on x-axis and visit count on y-axis', 'notAnswerableReason': None}",,"{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Total patient visits by month this year, line chart', 'notAnswerableReason': None}",,Fail,
+"Question: What is the overall no-show rate?
+
+Available database schema:
+Tables:
+- patients (patient_id, first_name, last_name, date_of_birth, gender, state, insurance_type, registration_date)
+- appointments (appointment_id, patient_id, provider_id, appointment_date, appointment_type, status, duration_min, no_show)
+- providers (provider_id, first_name, last_name, specialty, department_id, hire_date, status)
+- diagnoses (diagnosis_id, patient_id, appointment_id, icd_code, description, diagnosed_date, severity)
+- billing (billing_id, patient_id, appointment_id, service_date, billed_amount, paid_amount, insurance_paid, balance, status)
+- medications (medication_id, patient_id, drug_name, dosage, prescribed_date, end_date, provider_id)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'The question does not match the provided database schema.'}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Fail,Pass,
+"Question: Appointment volume by specialty
+
+Available database schema:
+Tables:
+- patients (patient_id, first_name, last_name, date_of_birth, gender, state, insurance_type, registration_date)
+- appointments (appointment_id, patient_id, provider_id, appointment_date, appointment_type, status, duration_min, no_show)
+- providers (provider_id, first_name, last_name, specialty, department_id, hire_date, status)
+- diagnoses (diagnosis_id, patient_id, appointment_id, icd_code, description, diagnosed_date, severity)
+- billing (billing_id, patient_id, appointment_id, service_date, billed_amount, paid_amount, insurance_paid, balance, status)
+- medications (medication_id, patient_id, drug_name, dosage, prescribed_date, end_date, provider_id)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Appointment volume by specialty, bar chart with specialty on x-axis and appointment count on y-axis sorted descending', 'notAnswerableReason': None}",,"{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'Appointment volume by specialty, bar chart', 'notAnswerableReason': None}",,Pass,
+"Question: How many new patients registered last quarter?
+
+Available database schema:
+Tables:
+- patients (patient_id, first_name, last_name, date_of_birth, gender, state, insurance_type, registration_date)
+- appointments (appointment_id, patient_id, provider_id, appointment_date, appointment_type, status, duration_min, no_show)
+- providers (provider_id, first_name, last_name, specialty, department_id, hire_date, status)
+- diagnoses (diagnosis_id, patient_id, appointment_id, icd_code, description, diagnosed_date, severity)
+- billing (billing_id, patient_id, appointment_id, service_date, billed_amount, paid_amount, insurance_paid, balance, status)
+- medications (medication_id, patient_id, drug_name, dosage, prescribed_date, end_date, provider_id)","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'patients table not in schema'}","{'questionAnswerable': True, 'requiresChart': False, 'requiresTextOutput': True, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': None}",Fail,Pass,
+"Question: Outstanding billing balance trend by month
+
+Available database schema:
+Tables:
+- patients (patient_id, first_name, last_name, date_of_birth, gender, state, insurance_type, registration_date)
+- appointments (appointment_id, patient_id, provider_id, appointment_date, appointment_type, status, duration_min, no_show)
+- providers (provider_id, first_name, last_name, specialty, department_id, hire_date, status)
+- diagnoses (diagnosis_id, patient_id, appointment_id, icd_code, description, diagnosed_date, severity)
+- billing (billing_id, patient_id, appointment_id, service_date, billed_amount, paid_amount, insurance_paid, balance, status)
+- medications (medication_id, patient_id, drug_name, dosage, prescribed_date, end_date, provider_id)","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Outstanding billing balance trend by month, line chart with month on x-axis and total outstanding balance on y-axis', 'notAnswerableReason': None}",,"{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'line', 'chartDetails': 'Outstanding billing balance trend by month, line chart', 'notAnswerableReason': None}",,Pass,
+"Question: What is the Net Promoter Score for our members?
+
+Available database schema:
+Tables:
+- dim_person (person_id, first_name, last_name, gender, age_at_join, join_date, state, city, county, zipcode, country, ethnicity, title, email, phone, join_source)
+- fact_membership (membership_id, person_id, product_id, start_date, end_date, is_renewed, is_recurring, churn_reason, dues_paid_thru_date, membership_subscription_id, order_id)
+- dim_product (product_id, product_name, product_type, price, category)
+- dim_order (order_id, person_id, total_amount, order_date, payment_status, channel)
+- dim_membership_status (status_id, status, description)
+- dim_payment (payment_id, order_id, payment_method, amount, payment_date, status)","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': False, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': 'NPS score data is not available in the schema. No survey or NPS tables found.'}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'Net Promoter Score is not a standard metric in the provided database schema'}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'What is the Net Promoter Score for our members, bar chart', 'notAnswerableReason': None}",Fail,Fail,
+"Question: What is the social media sentiment for our top products?
+
+Available database schema:
+Tables:
+- customers (customer_id, first_name, last_name, email, city, state, country, age, gender, signup_date, customer_segment)
+- orders (order_id, customer_id, order_date, total_amount, status, channel, shipping_cost)
+- order_items (item_id, order_id, product_id, quantity, unit_price, discount_pct)
+- products (product_id, product_name, category, sub_category, brand, cost_price, selling_price, stock_qty)
+- payments (payment_id, order_id, payment_method, amount, payment_date, status)
+- returns (return_id, order_id, item_id, reason, return_date, refund_amount, status)","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': False, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': 'Social media sentiment data is not available in the schema. No social media or sentiment analysis tables found.'}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'social media sentiment is not in the schema'}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'What is the social media sentiment for our top products, bar chart', 'notAnswerableReason': None}",Fail,Fail,
+"Question: What is the employee satisfaction score by team?
+
+Available database schema:
+Tables:
+- employees (employee_id, first_name, last_name, department_id, job_title, hire_date, termination_date, salary, gender, age, state, employment_status)
+- departments (department_id, department_name, manager_id, location, annual_budget)
+- performance_reviews (review_id, employee_id, review_date, rating, comments, reviewer_id)
+- leave_requests (request_id, employee_id, leave_type, start_date, end_date, days_taken, status)
+- payroll (payroll_id, employee_id, pay_period_start, pay_period_end, base_salary, bonus, overtime_pay, deductions, net_pay)","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': False, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': 'Employee satisfaction survey data is not available in the schema. No survey or satisfaction score tables found.'}","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': True, 'notAnswerableReason': 'data not in the schema'}","{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'What is the employee satisfaction score by team, bar chart', 'notAnswerableReason': None}",Fail,Fail,
+"Question: Show me a geographic heatmap with lat/long coordinates of user sessions
+
+Available database schema:
+Tables:
+- accounts (account_id, company_name, plan_type, signup_date, mrr, arr, status, country, industry)
+- users (user_id, account_id, email, role, created_at, last_login, is_active)
+- subscriptions (sub_id, account_id, plan_id, start_date, end_date, monthly_amount, billing_cycle, is_active)
+- events (event_id, user_id, event_type, event_name, occurred_at, session_id, device_type)
+- invoices (invoice_id, account_id, amount, issue_date, due_date, paid_date, status)
+- support_tickets (ticket_id, account_id, user_id, subject, priority, created_at, resolved_at, status)","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': False, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': 'Geographic coordinates (latitude/longitude) are not available in the schema. The events table does not contain location coordinate data.'}",,"{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'heatmap', 'chartDetails': 'Show me a geographic heatmap with lat/long coordinates of user sessions, heatmap chart', 'notAnswerableReason': None}",,Fail,
+"Question: What are patient satisfaction scores by provider for last quarter?
+
+Available database schema:
+Tables:
+- patients (patient_id, first_name, last_name, date_of_birth, gender, state, insurance_type, registration_date)
+- appointments (appointment_id, patient_id, provider_id, appointment_date, appointment_type, status, duration_min, no_show)
+- providers (provider_id, first_name, last_name, specialty, department_id, hire_date, status)
+- diagnoses (diagnosis_id, patient_id, appointment_id, icd_code, description, diagnosed_date, severity)
+- billing (billing_id, patient_id, appointment_id, service_date, billed_amount, paid_amount, insurance_paid, balance, status)
+- medications (medication_id, patient_id, drug_name, dosage, prescribed_date, end_date, provider_id)","{'questionAnswerable': False, 'requiresChart': False, 'requiresTextOutput': False, 'chartType': None, 'chartDetails': None, 'notAnswerableReason': 'Patient satisfaction score data is not available in the schema. No patient feedback or satisfaction survey tables found.'}",,"{'questionAnswerable': True, 'requiresChart': True, 'requiresTextOutput': False, 'chartType': 'bar', 'chartDetails': 'What are patient satisfaction scores by provider for last quarter, bar chart', 'notAnswerableReason': None}",,Fail,
+,,,,,,
+,,,,,,
+Resut Total,Base,Finetunned,,,,
+Pass,15,43,,,,
+Fail,41,17,,,,
+None,9,5,,,,
+,,,,,,
+Acc %,23.07692308,66.15384615,,90%,,
+,,,,58.5,,
